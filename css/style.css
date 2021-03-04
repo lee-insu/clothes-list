@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.inner {
+    width: 55vw;
+    height: auto;
+    background-color: aqua;
+    margin: 0 auto;
+}
+
+.banner-container {
+    height: 5vh;
+    background-color: blue;
+}
+
+#slide {
+    background-color: bisque;
+    height: 30vh;
+}
+
+.weather-container {
+    height: 30vh;
+    background-color: darkblue;
+    margin-top: 3rem;
+}
+
+.list-container {
+    background-color: gray;
+    margin-top: 3rem;
+    height: 30vh;
+}
