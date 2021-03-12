@@ -1,6 +1,6 @@
 window.addEventListener('load', function() {
 
-    let moveing_px = 20,
+    let moving_px = 20,
         auto_time = 7000,
         slide = document.getElementById('slide'),
         bar = document.createElement('ul'),
@@ -15,6 +15,10 @@ window.addEventListener('load', function() {
         after = 0,
         moveing = false;
 
+
+
+
+        slideCard[0].style.left = 0;      
         for(let i = 0; i < slideCard.length; i++) {
             bar.innerHTML += '<li></li>';
         };
@@ -27,6 +31,7 @@ window.addEventListener('load', function() {
             barClick(j);
         };
 
+    
         playSet = setInterval(playCard,auto_time);
         playBtn[0].style.display = 'none';
 
@@ -35,6 +40,7 @@ window.addEventListener('load', function() {
                 after ++;
                 if(after >= slideCard.length) {
                     after = 0;
+                    console.log(after)
                 };
                 move(after,before, 'next');
                 before = after;
@@ -105,7 +111,7 @@ window.addEventListener('load', function() {
            function moveEvent() {
                moveing = true;
                if(type === 'next') {
-                   nextX -= moveing_px;
+                   nextX -= moving_px;
                    slideCard[after].style.left = Number(nextX+10) + 'px';
                    if(nextX <= 0) {
                        clearInterval(set);
@@ -113,16 +119,16 @@ window.addEventListener('load', function() {
                        moveing = false;
                        console.log(nextX);
                    };
-                   prevX -= moveing_px;
+                   prevX -= moving_px;
                }else {
-                   nextX += moveing_px;
+                   nextX += moving_px;
                    slideCard[after].style.left = Number(nextX-10) + 'px';
                    if(nextX >= 0) {
                     clearInterval(set);
                     nextX = slide.offsetWidth * -1;
                     moveing = false;
                    };
-                   prevX += moveing_px;
+                   prevX += moving_px;
                 };
                 slideCard[before].style.left = Number(prevX) + 'px';
              };
