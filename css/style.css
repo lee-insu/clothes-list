@@ -202,7 +202,7 @@ a {
 .prev, .next {
     position: absolute;
     font-size: 4rem;
-    bottom: 13rem;
+    bottom: 45%;
     color: rgb(255, 255, 255);
     cursor: pointer;
 }
