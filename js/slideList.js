@@ -22,6 +22,7 @@ function transformPrev(e) {
 }
 
 
+
 function transformNext(e) {
     const slideNext = e.target,
           slidePrev = slideNext.previousElementSibling,
@@ -43,7 +44,7 @@ function transformNext(e) {
         }
         
         slidePrev.addEventListener('click',transformPrev);
-    }
+    } 
 
     clothesList.style.transition = 'transform 1s'
     clothesList.style.transform = 'translateX('+ Number(activeLi) +'px)';

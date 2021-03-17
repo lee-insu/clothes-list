@@ -236,9 +236,9 @@ a {
     height: 100%;
     display: flex;
     list-style: none;
+    overflow: none;
     padding: 1rem 0;
     margin: 0;
-    overflow: hidden;
 }
 
 .list-card {
