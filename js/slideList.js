@@ -30,11 +30,11 @@ function transformNext(e) {
 
     let activeLi = clothesList.getAttribute('data-position');
 
-    if(clothesList.clientWidth < (liList.length * 355 + Number(activeLi))) {
-        activeLi = Number(activeLi) - 355;
+    if(clothesList.clientWidth < (liList.length * 220 + Number(activeLi))) {
+        activeLi = Number(activeLi) - 220;
         slidePrev.classList.add('prev-hover');
         
-        if(clothesList.clientWidth > (liList.length * 355 + Number(activeLi))) {
+        if(clothesList.clientWidth > (liList.length * 220 + Number(activeLi))) {
             slideNext.removeEventListener('click',transformNext);
             slideNext.classList.remove('next-hover');
             
@@ -47,4 +47,14 @@ function transformNext(e) {
     clothesList.style.transform = 'translateX('+ Number(activeLi) +'px)';
     clothesList.setAttribute('data-position',activeLi);
 
+}
+
+const slideNextList = document.getElementsByClassName('next');
+
+for (let i = 0; i <slideNextList.length; i++) {
+    let clothesList = slideNextList[i].previousElementSibling;
+    let liList = clothesList.getElementsByTagName('li');
+    if(clothesList.clientWidth < (liList.length * 355)) {
+        slideNextList[i].addEventListener('click',transformNext);
+    }
 }
