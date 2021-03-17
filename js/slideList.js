@@ -6,7 +6,7 @@ function transformPrev(e) {
     let activeLi = clothesList.getAttribute('data-position');
 
     if(Number(activeLi) < 0) {
-        activeLi = Number(activeLi) + 220;
+        activeLi = Number(activeLi) + 235;
         slideNext.addEventListener('click',transformNext);
         slideNext.classList.add('next-hover');
 
@@ -29,13 +29,14 @@ function transformNext(e) {
           liList = clothesList.getElementsByTagName('li');
 
     let activeLi = clothesList.getAttribute('data-position');
-    console.log('kk');
 
-    if(clothesList.clientWidth < (liList.length * 220 + Number(activeLi))) {
-        activeLi = Number(activeLi) - 220;
+
+    if(clothesList.clientWidth < (liList.length * 235 + Number(activeLi))) {
+        activeLi = Number(activeLi) - 235;
         slidePrev.classList.add('prev-hover');
+      
         
-        if(clothesList.clientWidth > (liList.length * 220 + Number(activeLi))) {
+        if(clothesList.clientWidth > (liList.length * 235 + Number(activeLi))) {
             slideNext.removeEventListener('click',transformNext);
             slideNext.classList.remove('next-hover');
             
@@ -50,12 +51,17 @@ function transformNext(e) {
 
 }
 
-const slideNextList = document.getElementsByClassName('next');
+const slideNextArrow = document.getElementsByClassName('next');
 
-for (let i = 0; i <slideNextList.length; i++) {
-    let clothesList = slideNextList[0].previousElementSibling.previousElementSibling;
+for (let i = 0; i <slideNextArrow.length; i++) {
+    let clothesList = slideNextArrow[i].previousElementSibling.previousElementSibling;
     let liList = clothesList.getElementsByTagName('li');
-    if(clothesList.clientWidth < (liList.length * 220)) {
-        slideNextList[i].addEventListener('click',transformNext);
+    if(clothesList.clientWidth < (liList.length * 235)) {
+        slideNextArrow[i].addEventListener('click',transformNext);
+    } else {
+        const removeArrow = slideNextArrow[i].parentElement;
+        removeArrow.removeChild(slideNextArrow[i].previousElementSibling);
+        removeArrow.removeChild(slideNextArrow[i]);
+    
     }
 }
