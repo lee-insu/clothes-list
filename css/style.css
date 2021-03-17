@@ -204,9 +204,13 @@ a {
     position: absolute;
     font-size: 4rem;
     bottom: 45%;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
+    color: rgb(105, 105, 105);
+    
 }
+
+.prev-hover,.next-hover {translate: 2s;}
+.prev-hover:hover {transform: translate(-4px,0); color:rgb(211,211,211);cursor: pointer;}
+.next-hover:hover {transform: translate(4px,0); color:rgb(211,211,211);cursor: pointer;}
 .prev {left: 1rem;}
 .next {right:1rem;}
 
@@ -249,4 +253,41 @@ a {
 .clothes-img {
     max-width: 220px;
     margin: 0;
+}
+
+
+#backtotop {
+    width: 40px;
+    height: 40px;
+    right: 30px;
+    bottom: 30px;
+    position: fixed;
+    transition-property: opacity, visibility;
+    transition-duration: 0.5s, 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+    color: #fff;
+    
+}
+
+#backtotop::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-size: 1.5rem;
+    line-height: 40px;
+    color: #D4D1CF;
+}
+
+#backtotop.show {
+    opacity: 1;
+    visibility: visible;
+    
+}
+
+#backtotop.show:hover {
+    cursor: pointer;
+    transition: 0.4s;
+    transform: translate(0,-9px);
+    
 }
