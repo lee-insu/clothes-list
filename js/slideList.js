@@ -1,7 +1,7 @@
 function transformPrev(e) {
     const slidePrev = e.target,
           slideNext = slidePrev.nextElementSibling,
-          clothesList = slidePrev.previousElementSibling.children[1];
+          clothesList = slidePrev.previousElementSibling;
 
     let activeLi = clothesList.getAttribute('data-position');
 
@@ -12,7 +12,7 @@ function transformPrev(e) {
 
         if(Number(activeLi) === 0) {
             slidePrev.classList.remove('prev-hover');
-            slidePrev.removeEventLister('click',transformPrev);
+            slidePrev.removeEventListener('click',transformPrev);
         }
     }
 
@@ -25,10 +25,11 @@ function transformPrev(e) {
 function transformNext(e) {
     const slideNext = e.target,
           slidePrev = slideNext.previousElementSibling,
-          clothesList = slideNext.previousElementSibling.previousElementSibling.children[1],
+          clothesList = slideNext.previousElementSibling.previousElementSibling,
           liList = clothesList.getElementsByTagName('li');
 
     let activeLi = clothesList.getAttribute('data-position');
+    console.log('kk');
 
     if(clothesList.clientWidth < (liList.length * 220 + Number(activeLi))) {
         activeLi = Number(activeLi) - 220;
@@ -52,9 +53,9 @@ function transformNext(e) {
 const slideNextList = document.getElementsByClassName('next');
 
 for (let i = 0; i <slideNextList.length; i++) {
-    let clothesList = slideNextList[i].previousElementSibling;
+    let clothesList = slideNextList[0].previousElementSibling.previousElementSibling;
     let liList = clothesList.getElementsByTagName('li');
-    if(clothesList.clientWidth < (liList.length * 355)) {
+    if(clothesList.clientWidth < (liList.length * 220)) {
         slideNextList[i].addEventListener('click',transformNext);
     }
 }
