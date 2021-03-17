@@ -41,6 +41,7 @@ function transformNext(e) {
             slideNext.removeEventListener('click',transformNext);
             slideNext.classList.remove('next-hover');
             
+        }
         
         slidePrev.addEventListener('click',transformPrev);
     } 
@@ -62,9 +63,6 @@ for (let i = 0; i <slideNextArrow.length; i++) {
         const removeArrow = slideNextArrow[i].parentElement;
         removeArrow.removeChild(slideNextArrow[i].previousElementSibling);
         removeArrow.removeChild(slideNextArrow[i]);
-
-
     
     }
-}
 }
